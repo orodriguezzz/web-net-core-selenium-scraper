@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div>
+    <form asp-action="Index">
+        <div class="form-group">
+            <label class="control-label"></label>
+            <input name="input-url-target" class="form-control" value="https://github.com/customer-stories?type=enterprise" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"></label>
+            <input name="input-object-wrapper" class="form-control" value="div[class='d-flex flex-wrap flex-items-stretch flex-justify-start pb-3 gutter-sm-condensed gutter-md'] > article" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"></label>
+            <input name="input-object-detail" class="form-control" value="h1[class='h5-mktg-fluid color-text-primary mb-2']" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Get the data!" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+@if (ViewBag.result != null)
+{
+    <div class="alert alert-info">
+        <h3>Scraping content</h3>
+        <ul>
+            @foreach (var item in ViewBag.result)
+            {
+                <li>@item</li>
+            }
+        </ul>
+    </div>
+}
